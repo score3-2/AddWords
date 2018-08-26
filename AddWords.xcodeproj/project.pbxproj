@@ -13,6 +13,7 @@
 		DA08D89F2132347F003EBB36 /* AddWords.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA08D89D2132347F003EBB36 /* AddWords.xcdatamodeld */; };
 		DA08D8A121323480003EBB36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA08D8A021323480003EBB36 /* Assets.xcassets */; };
 		DA08D8A421323480003EBB36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA08D8A221323480003EBB36 /* LaunchScreen.storyboard */; };
+		DA08D8AC213234D9003EBB36 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA08D8AB213234D9003EBB36 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		DA08D8A021323480003EBB36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA08D8A321323480003EBB36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA08D8A521323480003EBB36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA08D8AB213234D9003EBB36 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				DA08D8962132347F003EBB36 /* AppDelegate.swift */,
 				DA08D8982132347F003EBB36 /* ViewController.swift */,
+				DA08D8AB213234D9003EBB36 /* TableViewController.swift */,
 				DA08D89A2132347F003EBB36 /* Main.storyboard */,
 				DA08D8A021323480003EBB36 /* Assets.xcassets */,
 				DA08D8A221323480003EBB36 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				DA08D8992132347F003EBB36 /* ViewController.swift in Sources */,
 				DA08D8972132347F003EBB36 /* AppDelegate.swift in Sources */,
 				DA08D89F2132347F003EBB36 /* AddWords.xcdatamodeld in Sources */,
+				DA08D8AC213234D9003EBB36 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
