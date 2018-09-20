@@ -10,13 +10,34 @@ import UIKit
 import CoreData
 
 class TableViewController: UITableViewController {
+        
+    // MARK: - View Life Cycle
     
-    //Properties
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //A
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let managedContext = appDelegate!.persistentContainer.viewContext
+        
+        //B fetch = ir a buscar || traer || extraer
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "List")
+        
+        //C
+        do {
+            managedObjects = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Couldn't get data back error was: \(error), \(error.userInfo)")
+        }
+    }
+    
+    // MARK: - Properties
+    
     var managedObjects:[NSManagedObject] = []
 
-    // MARK: - Table view data source
+    // MARK - Methods
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
@@ -24,7 +45,6 @@ class TableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return managedObjects.count
     }
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
@@ -35,6 +55,20 @@ class TableViewController: UITableViewController {
         return cell
     }
   
+    func saveWord(word: String) {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let managedContext = appDelegate!.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "List", in: managedContext)!
+        let managedObject = NSManagedObject(entity: entity, insertInto: managedContext)
+        managedObject.setValue(word, forKey: "word")
+        do {
+            try managedContext.save()
+            managedObjects.append(managedObject)
+        } catch let error as NSError {
+            print("Could not be saved. Error \(error), \(error.userInfo)" )
+        }
+    }
+    
     // Actions
     @IBAction func addWords(_ sender: Any) {
         
@@ -63,19 +97,7 @@ class TableViewController: UITableViewController {
         
     }
     
-    func saveWord(word: String) {
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        let managedContext = appDelegate!.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "List", in: managedContext)!
-        let managedObject = NSManagedObject(entity: entity, insertInto: managedContext)
-        managedObject.setValue(word, forKey: "word")
-        do {
-            try managedContext.save()
-            managedObjects.append(managedObject)
-        } catch let error as NSError {
-            print("Could not be saved. Error \(error), \(error.userInfo)" )
-        }
-    }
+ 
     
 }//End
 
